@@ -1,0 +1,13 @@
+.row {
+  background: linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)),url(../../assets/background-budget.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  height: 450px;
+  color: #fff;
+
+  h1 {
+    padding-top: 50px;
+  }
+}
