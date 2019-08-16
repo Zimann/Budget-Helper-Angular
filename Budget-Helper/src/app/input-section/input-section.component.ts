@@ -27,8 +27,7 @@ export class InputSectionComponent implements OnInit, AfterViewInit {
   }
 
   // grab the field values (added number and description)
- public pushData(key = null) {
-    console.log(key);
+ public pushData() {
     // check if both the text description and value input fields have values in them
     if (this.inputDescription.nativeElement.value !== '' && this.inputNumber.nativeElement.value !== '') {
       this.operationService.processFigures(Number(this.inputNumber.nativeElement.value), this.operatorSign);
