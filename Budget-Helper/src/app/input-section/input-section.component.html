@@ -1,7 +1,14 @@
-<div class="row">
-  <div class="col-md-12 text-center">
-    <p>
-      input-section works!
-    </p>
+<div class="row align-items-center">
+  <div class="col-md-12 text-center d-flex align-items-center justify-content-center" id="inputs">
+    <div class="select-wrapper position-relative">
+      <select class="input-option" (change)="getSelectOption($event)">
+        <option selected="selected">+</option>
+        <option>-</option>
+      </select>
+      <i class="fa fa-arrows-v arrows"></i>
+    </div>
+      <input type="text" class="input-description"  #inputDescription placeholder="Add description">
+      <input type="number" class="input-value" #inputNumber placeholder="Value">
+      <i class="fa fa-check-circle-o icon-add-value" (click) = "pushData()"></i>
   </div>
 </div>

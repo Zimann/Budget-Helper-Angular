@@ -1,0 +1,30 @@
+.main-overview-container {
+  background: #fff;
+  height: 500px;
+  margin-top: 25px;
+  border-top: 1px solid #dbdada;
+  margin-bottom: 100px;
+  padding-bottom: 50px;
+  box-shadow: 3px 7px 36px -8px rgba(0,0,0,.49);
+
+  .col-title {
+      padding-top: 20px;
+      padding-bottom: 2px;
+      font-size: 19px;
+      font-weight: bold;
+  }
+
+  hr {
+    width: 100%;
+    border-top: 1px solid rgba(159,159,159,.29);
+  }
+
+  .col-title-income {
+    color: #3eaaa4;
+  }
+
+  .col-title-expenses {
+    color: #dc5f45;
+  }
+}
+

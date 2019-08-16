@@ -10,4 +10,31 @@
   h1 {
     padding-top: 50px;
   }
+
+  .income-display,
+  .expenses-display {
+    width: 35%;
+    margin: auto;
+    text-align: left;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+
+    .field-value {
+      position: absolute;
+      right: 25px;
+    }
+    //padding-left: 20px;
+    //padding-top: 20px;
+    //padding-bottom: 20px;
+  }
+
+  .income-display {
+    background-color: #3eaaa4;
+    width: 35%;
+  }
+
+  .expenses-display {
+    background-color: #dc5f45;
+  }
 }

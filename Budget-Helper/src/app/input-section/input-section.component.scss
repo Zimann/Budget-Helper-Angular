@@ -1,0 +1,66 @@
+/* Hide HTML5 Up and Down arrows. */
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+#inputs {
+  padding-top: 40px;
+  font-size: 15px;
+
+  .arrows {
+    position: absolute;
+    right: 25px;
+    top: 17px;
+    pointer-events: none;
+
+    &:before {
+      font-size: 18px;
+      color: grey;
+    }
+  }
+
+  .input-option,
+  .input-description,
+  .input-value {
+    padding: 15px;
+    border: 1px solid #dbdada;
+    outline: 0;
+    font-weight: 700;
+    color: grey;
+    border-radius: 10px;
+  }
+
+  .input-option {
+    width: 65px;
+    margin-right: 15px;
+    cursor: pointer;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    }
+
+  .input-description {
+    width: 250px;
+  }
+
+
+  .input-value {
+    margin-left: 15px;
+    width: 12%;
+    }
+
+  .icon-add-value {
+    padding-left: 10px;
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:before {
+      font-size: 40px;
+      font-weight: 100;
+      color: #3eaaa4;
+    }
+  }
+}
