@@ -38,3 +38,16 @@
     background-color: #dc5f45;
   }
 }
+
+.total-sum {
+  opacity: 0;
+  transition:  all 0.3s ease-in-out;
+
+  span:nth-of-type(1) {
+    border-bottom: 1px solid white;
+  }
+}
+
+.show-total {
+  opacity: 1;
+}

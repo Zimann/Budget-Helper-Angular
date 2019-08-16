@@ -3,7 +3,7 @@
     <h1>
       Available Budget in: {{ currentMonth }}
     </h1>
-    <h2>Total: <span [ngClass]="{'show-total': total > 0} ">{{total | async}}</span> </h2>
+    <h2 class="total-sum" [ngClass]="{'show-total' : (total | async) !== 0}"><span>Total</span><br> <span>{{total | async}}</span> </h2>
   </div>
   <div class="col-md-12 text-center">
     <div class="income-display">

@@ -64,3 +64,22 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
     }
   }
 }
+
+.error-message {
+  width: 100%;
+  display: none;
+
+  h3 {
+    margin: 0;
+    margin-top: 8px;
+    text-align: center;
+    font-size: 18px;
+    color: red;
+    font-weight: 700;
+  }
+}
+
+.show-error-message {
+  display: block;
+}
+
