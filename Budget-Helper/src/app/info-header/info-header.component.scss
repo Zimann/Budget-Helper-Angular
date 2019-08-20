@@ -13,25 +13,30 @@
 
   .income-display,
   .expenses-display {
-    width: 35%;
+    width: 525px;
     margin: auto;
     text-align: left;
     padding: 20px;
     border-radius: 10px;
     position: relative;
+    display: flex;
+    justify-content: space-between;
 
-    .field-value {
-      position: absolute;
-      right: 25px;
+    .total-percentage {
+      transition: .2s linear;
+      border-radius: 7px;
+      border: solid 1px #fff;
+      background-color: #2e336a;
+      color: #fff;
+      padding: 4px;
+      font-size: 14px;
+      margin-left: 3px;
+      margin-right: -5px;
     }
-    //padding-left: 20px;
-    //padding-top: 20px;
-    //padding-bottom: 20px;
   }
 
   .income-display {
     background-color: #3eaaa4;
-    width: 35%;
   }
 
   .expenses-display {

@@ -3,18 +3,24 @@
     <h1>
       Available Budget in: {{ currentMonth }}
     </h1>
-    <h2 class="total-sum" [ngClass]="{'show-total' : (total | async) !== 0}"><span>Total</span><br> <span>{{total | async}}</span> </h2>
+    <h2 class="total-sum" [ngClass]="{'show-total' : (total$ | async) !== 0}"><span>Total</span><br> <span>{{total$ | async}}</span> </h2>
   </div>
   <div class="col-md-12 text-center">
     <div class="income-display">
       <span>Income</span>
-      <span class="field-value">{{ income | async }}</span>
+      <span #totalIncome class="field-value">{{ income$ | async }}</span>
     </div>
   </div>
   <div class="col-md-12 text-center">
     <div class="expenses-display">
       <span>Expenses</span>
-      <span class="field-value">{{ expense | async }}</span>
+      <span  #totalExpense class="field-value">
+        <span *ngIf="(expense$ | async) > 0">-</span> {{ expense$ | async }}
+        <span class="total-percentage"
+              *ngIf="-(totalPercentage$ | async) <= 100 && -(totalPercentage$ | async ) > 0 as showPercentage ">
+          {{ -(totalPercentage$ | async) }} %
+        </span>
+      </span>
     </div>
   </div>
 </div>
