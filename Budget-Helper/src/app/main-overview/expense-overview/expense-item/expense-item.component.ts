@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-expense-item',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./expense-item.component.scss']
 })
 export class ExpenseItemComponent implements OnInit {
+
+  @Input() expenseValues: {}[];
 
   constructor() { }
 
