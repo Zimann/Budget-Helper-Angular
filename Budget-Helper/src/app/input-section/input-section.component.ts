@@ -11,6 +11,7 @@ export class InputSectionComponent implements OnInit, AfterViewInit {
 
   private operatorSign: string;
   public showErrorMessage = false;
+  public isIncome: boolean;
   @ViewChild('inputDescription', {static: false}) inputDescription: ElementRef;
   @ViewChild('inputNumber', {static: false}) inputNumber: ElementRef;
   constructor(private operationService: OperationService) { }
@@ -30,9 +31,13 @@ export class InputSectionComponent implements OnInit, AfterViewInit {
  public pushData() {
     // check if both the text description and value input fields have values in them
     if (this.inputDescription.nativeElement.value !== '' && this.inputNumber.nativeElement.value !== '') {
-      this.operationService.processFigures(Number(this.inputNumber.nativeElement.value), this.operatorSign);
+      this.operationService.processFigures(
+        Number(this.inputNumber.nativeElement.value),
+        this.inputDescription.nativeElement.value,
+        this.operatorSign);
       this.inputDescription.nativeElement.value = '';
       this.inputNumber.nativeElement.value = '';
+
       if (this.showErrorMessage) {
         this.showErrorMessage = !this.showErrorMessage;
       }
