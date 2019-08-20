@@ -1,3 +1,9 @@
-<p>
-  expense-overview works!
-</p>
+<h3 class="col-title col-title-expenses">EXPENSES</h3>
+<hr>
+  <ul class="expense-entry-list">
+    <li *ngFor="let addedEntry of addedEntries">
+      <span>{{addedEntry.description}}</span>
+      <span>{{addedEntry.value}}</span>
+      <hr>
+    </li>
+  </ul>

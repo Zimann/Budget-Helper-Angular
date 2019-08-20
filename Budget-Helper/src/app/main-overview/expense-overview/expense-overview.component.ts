@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {OperationService} from '../../operation.service';
 
 @Component({
   selector: 'app-expense-overview',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExpenseOverviewComponent implements OnInit {
 
-  constructor() { }
+  public addedEntries = this.operationService.expenseEntries;
+
+  constructor(private operationService: OperationService) { }
 
   ngOnInit() {
   }
