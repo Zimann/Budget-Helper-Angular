@@ -1,4 +1,4 @@
-import {AfterViewInit, ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component, HostListener, OnInit} from '@angular/core';
 import {ViewChild, ElementRef} from '@angular/core';
 import {OperationService} from '../operation.service';
 
@@ -11,9 +11,14 @@ export class InputSectionComponent implements OnInit, AfterViewInit {
 
   private operatorSign: string;
   public showErrorMessage = false;
-  public isIncome: boolean;
   @ViewChild('inputDescription', {static: false}) inputDescription: ElementRef;
   @ViewChild('inputNumber', {static: false}) inputNumber: ElementRef;
+  @HostListener('keydown', ['$event'])
+  onKeyPress(ev: KeyboardEvent) {
+    if (ev.key === 'Enter') {
+      this.pushData();
+    }
+  }
   constructor(private operationService: OperationService) { }
 
   // handle the operation sign (+ or -)
