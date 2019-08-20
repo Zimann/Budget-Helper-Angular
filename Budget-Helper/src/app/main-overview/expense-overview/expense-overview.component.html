@@ -1,9 +1,5 @@
 <h3 class="col-title col-title-expenses">EXPENSES</h3>
 <hr>
-  <ul class="expense-entry-list">
-    <li *ngFor="let addedEntry of addedEntries">
-      <span>{{addedEntry.description}}</span>
-      <span>{{addedEntry.value}}</span>
-      <hr>
-    </li>
-  </ul>
+<!--  <div class="expense-entry-list">-->
+    <app-expense-item [expenseValues]="addedEntries"></app-expense-item>
+<!--  </div>-->
