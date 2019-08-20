@@ -7,6 +7,7 @@ import { InputSectionComponent } from './input-section/input-section.component';
 import { MainOverviewComponent } from './main-overview/main-overview.component';
 import { IncomeOverviewComponent } from './main-overview/income-overview/income-overview.component';
 import { ExpenseOverviewComponent } from './main-overview/expense-overview/expense-overview.component';
+import { ExpenseItemComponent } from './expense-item/expense-item.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ExpenseOverviewComponent } from './main-overview/expense-overview/expen
     InputSectionComponent,
     MainOverviewComponent,
     IncomeOverviewComponent,
-    ExpenseOverviewComponent
+    ExpenseOverviewComponent,
+    ExpenseItemComponent
   ],
   imports: [
     BrowserModule
