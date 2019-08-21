@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {OperationService} from '../../../operation.service';
 
 @Component({
   selector: 'app-expense-item',
@@ -7,9 +8,10 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class ExpenseItemComponent implements OnInit {
 
+  accumulatedExpenseValue$ = this.operationService.expenseValue$;
   @Input() expenseValues: {}[];
 
-  constructor() { }
+  constructor(private operationService: OperationService) { }
 
   ngOnInit() {
   }

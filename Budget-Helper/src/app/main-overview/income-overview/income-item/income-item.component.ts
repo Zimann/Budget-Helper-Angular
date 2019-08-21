@@ -1,4 +1,4 @@
-import {Component, ElementRef, HostListener, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {OperationService} from '../../../operation.service';
 
 @Component({
@@ -7,16 +7,10 @@ import {OperationService} from '../../../operation.service';
   styleUrls: ['./income-item.component.scss']
 })
 export class IncomeItemComponent implements OnInit {
+
+  accumulatedIncomeValue$ = this.operationService.incomeValue$;
   @Input() incomeValues: {}[];
-
-  @ViewChild('itemValue', {static: false}) itemValue: ElementRef;
-  @HostListener('mouseenter', ['$event']) onMouseEnter() {
-    console.log(this.operationService.hoverIncome());
-    console.log(event.currentTarget);
-    // console.log(this.itemValue.nativeElement.innerText);
-  }
   constructor(private operationService: OperationService) { }
-
 
   ngOnInit() {
   }

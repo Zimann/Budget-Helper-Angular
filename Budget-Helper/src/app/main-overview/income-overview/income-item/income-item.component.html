@@ -1,8 +1,8 @@
 <div class="list-item" *ngFor="let addedEntry of incomeValues">
   <div>{{addedEntry.description}}</div>
   <div>
-    <span #itemValue class="item-value">{{addedEntry.value}}</span>
-    <span class="hovered-percentage">{{addedEntry.individualPercentage}}</span>
+    <span class="item-value">{{addedEntry.value}}</span>
+    <span class="hovered-percentage">{{(addedEntry.value/(accumulatedIncomeValue$ | async) * 100).toFixed(2)}}%</span>
     <i class="fa fa-times-circle-o circle-blue" aria-hidden="true"></i>
   </div>
 </div>
