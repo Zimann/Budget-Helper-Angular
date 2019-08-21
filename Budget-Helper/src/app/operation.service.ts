@@ -17,7 +17,7 @@ export class OperationService {
   public incomeItems$ = of(this.incomeItems).subscribe(val => this.incomeEntries = val);
   public expenseEntries: {}[];
   public incomeEntries: {}[];
-  // exposed observables from the above BehaviorSubjects
+  // expose observables from the above BehaviorSubjects
   public incomeValue$ = this.incomeSubj.asObservable();
   public expenseValue$ = this.expenseSubj.asObservable();
   public totalValue$ = this.totalSubj.asObservable();
@@ -36,7 +36,12 @@ export class OperationService {
     } else {
       this.expenseValue -= inputValue;
       this.expenseSubj.next(-this.expenseValue);
-      this.expenseItems.push({description: inputText, value: inputValue});
+      this.expenseItems.push(
+        {
+          description: inputText,
+          value: inputValue,
+          individualPercentage: -Number((inputValue / this.expenseValue) * 100).toFixed(2)});
+      console.log(this.expenseItems);
     }
     this.totalValue = this.incomeValue + this.expenseValue;
     this.totalSubj.next(this.totalValue);
@@ -48,5 +53,11 @@ export class OperationService {
           .toFixed(2)
       )
     );
+  }
+
+  hoverIncome() {
+    return this.incomeValue;
+    // calculate the individual percentage here
+    // feed the observable in for calculation
   }
 }
