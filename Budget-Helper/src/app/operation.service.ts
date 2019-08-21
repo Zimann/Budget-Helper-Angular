@@ -12,8 +12,11 @@ export class OperationService {
   private totalPercentageSubj = new BehaviorSubject<number>(0);
 
   private expenseItems = [];
+  private incomeItems = [];
   public expenseItems$ = of(this.expenseItems).subscribe(val => this.expenseEntries = val);
+  public incomeItems$ = of(this.incomeItems).subscribe(val => this.incomeEntries = val);
   public expenseEntries: {}[];
+  public incomeEntries: {}[];
   // exposed observables from the above BehaviorSubjects
   public incomeValue$ = this.incomeSubj.asObservable();
   public expenseValue$ = this.expenseSubj.asObservable();
@@ -29,6 +32,7 @@ export class OperationService {
     if (operatorSign === '+') {
       this.incomeValue += inputValue;
       this.incomeSubj.next(this.incomeValue);
+      this.incomeItems.push({description: inputText, value: inputValue});
     } else {
       this.expenseValue -= inputValue;
       this.expenseSubj.next(-this.expenseValue);
