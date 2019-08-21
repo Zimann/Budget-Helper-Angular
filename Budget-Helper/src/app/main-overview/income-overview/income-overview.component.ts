@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {OperationService} from '../../operation.service';
 
 @Component({
   selector: 'app-income-overview',
@@ -7,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IncomeOverviewComponent implements OnInit {
 
-  constructor() { }
+  public addedEntries = this.operationService.incomeEntries;
+  constructor(private operationService: OperationService) { }
 
   ngOnInit() {
   }
