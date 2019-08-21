@@ -1,8 +1,8 @@
 <div class="list-item" *ngFor="let addedEntry of expenseValues">
-        <span>{{addedEntry.description}}</span>
-        <span>
-          {{addedEntry.value}}
-          <i class="fa fa-times-circle-o circle-blue" aria-hidden="true"></i>
-        </span>
-        <hr>
+  <div>{{addedEntry.description}}</div>
+  <div>
+    <span class="item-description">{{addedEntry.value}}</span>
+    <span class="hovered-percentage">10.56%</span>
+    <i class="fa fa-times-circle-o circle-orange" aria-hidden="true"></i>
+  </div>
 </div>

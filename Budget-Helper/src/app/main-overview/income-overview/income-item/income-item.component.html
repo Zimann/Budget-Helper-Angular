@@ -1,3 +1,9 @@
-<p>
-  income-item works!
-</p>
+<div class="list-item" *ngFor="let addedEntry of incomeValues">
+  <div>{{addedEntry.description}}</div>
+  <div>
+    <span class="item-description">{{addedEntry.value}}</span>
+    <span class="hovered-percentage">10.56%</span>
+    <i class="fa fa-times-circle-o circle-blue" aria-hidden="true"></i>
+  </div>
+<!--  <hr>-->
+</div>
