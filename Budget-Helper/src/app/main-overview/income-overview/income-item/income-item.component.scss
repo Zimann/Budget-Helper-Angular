@@ -6,7 +6,7 @@
   position: relative;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
-  .item-description {
+  .item-value {
     transition: all 0.3s ease-in-out;
   }
 
@@ -15,7 +15,7 @@
 
     div {
 
-      .item-description {
+      .item-value {
         padding-right: 40px;
       }
 
