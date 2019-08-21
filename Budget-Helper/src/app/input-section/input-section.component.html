@@ -8,8 +8,13 @@
       <i class="fa fa-arrows-v arrows"></i>
     </div>
       <input type="text" class="input-description"  #inputDescription placeholder="Add description">
-      <input type="number" class="input-value" #inputNumber placeholder="Value">
-      <i class="fa fa-check-circle-o icon-add-value" (click) = "pushData()"></i>
+      <input type="number" class="input-value"
+             #inputNumber
+             placeholder="Value (digits)"
+             (keydown)="checkInputKeys($event)"
+      >
+      <i class="fa fa-check-circle-o icon-add-value" (click)="pushData()"></i>
   </div>
   <div class="error-message" [ngClass]="{'show-error-message': showErrorMessage}"><h3>Please type in a value and a description</h3></div>
+  <div class="error-message" [ngClass]="{'show-error-message': showCharErrorMessage}"><h3>The - and + signs are not allowed</h3></div>
 </div>

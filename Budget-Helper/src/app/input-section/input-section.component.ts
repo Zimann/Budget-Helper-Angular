@@ -11,6 +11,7 @@ export class InputSectionComponent implements OnInit, AfterViewInit {
 
   private operatorSign: string;
   public showErrorMessage = false;
+  public showCharErrorMessage = false;
   @ViewChild('inputDescription', {static: false}) inputDescription: ElementRef;
   @ViewChild('inputNumber', {static: false}) inputNumber: ElementRef;
   @HostListener('keydown', ['$event'])
@@ -50,7 +51,26 @@ export class InputSectionComponent implements OnInit, AfterViewInit {
 
   }
 
+  public checkInputKeys(event) {
+
+    // show the error message for characters that are not allowed
+    this.showCharErrorMessage = event.key === '-' || event.key === '+';
+
+    switch (event.key) {
+      case 'e':
+        event.preventDefault();
+        break;
+      case '-':
+        event.preventDefault();
+        break;
+      case '+':
+        event.preventDefault();
+        break;
+    }
+  }
+
   ngOnInit(): void {
+
   }
 
   ngAfterViewInit(): void {

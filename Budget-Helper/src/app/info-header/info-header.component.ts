@@ -1,6 +1,5 @@
-import {AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {OperationService} from '../operation.service';
-import {of} from 'rxjs';
 
 @Component({
   selector: 'app-info-header',
@@ -8,13 +7,11 @@ import {of} from 'rxjs';
   styleUrls: ['./info-header.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class InfoHeaderComponent implements OnInit, AfterViewInit {
+export class InfoHeaderComponent implements OnInit {
   public income$ = this.operationService.incomeValue$;
   public expense$ = this.operationService.expenseValue$;
   public total$ = this.operationService.totalValue$;
   public totalPercentage$ = this.operationService.totalPercentageValue$;
-  @ViewChild('totalExpense', {static: false}) totalExpense: ElementRef;
-  @ViewChild('totalIncome', {static: false}) totalIncome: ElementRef;
   currentMonth: string;
   monthArray = [
     'January',
@@ -34,10 +31,6 @@ export class InfoHeaderComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.processCurrentDate();
-  }
-
-  ngAfterViewInit(): void {
-    console.log(this.totalExpense.nativeElement);
   }
 
   processCurrentDate() {
