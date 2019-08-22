@@ -1,8 +1,8 @@
-<div class="list-item" *ngFor="let addedEntry of expenseValues">
+<div class="list-item" *ngFor="let addedEntry of expenseValues, let i = index">
   <div>{{addedEntry.description}}</div>
   <div>
     <span class="item-value">{{addedEntry.value}}</span>
     <span class="hovered-percentage">{{(addedEntry.value/(accumulatedExpenseValue$ | async) * 100).toFixed(2)}}%</span>
-    <i class="fa fa-times-circle-o circle-orange" aria-hidden="true"></i>
+    <i (click)=removeExpenseItem(i) class="fa fa-times-circle-o circle-orange" aria-hidden="true"></i>
   </div>
 </div>

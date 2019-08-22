@@ -1,22 +1,23 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, of} from 'rxjs';
+import {InputItemModel} from './models/input-item.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OperationService {
 
-  private incomeSubj = new BehaviorSubject<number> (0);
-  private expenseSubj = new BehaviorSubject<number> (0);
-  private totalSubj = new BehaviorSubject<number> (0);
-  private totalPercentageSubj = new BehaviorSubject<number>(0);
+  public incomeSubj = new BehaviorSubject<number> (0);
+  public expenseSubj = new BehaviorSubject<number> (0);
+  public totalSubj = new BehaviorSubject<number> (0);
+  public totalPercentageSubj = new BehaviorSubject<number>(0);
 
   private expenseItems = [];
   private incomeItems = [];
   public expenseItems$ = of(this.expenseItems).subscribe(val => this.expenseEntries = val);
   public incomeItems$ = of(this.incomeItems).subscribe(val => this.incomeEntries = val);
-  public expenseEntries: {}[];
-  public incomeEntries: {}[];
+  public expenseEntries: InputItemModel[];
+  public incomeEntries: InputItemModel[];
   // expose observables from the above BehaviorSubjects
   public incomeValue$ = this.incomeSubj.asObservable();
   public expenseValue$ = this.expenseSubj.asObservable();
@@ -39,9 +40,8 @@ export class OperationService {
       this.expenseItems.push(
         {
           description: inputText,
-          value: inputValue,
-          individualPercentage: -Number((inputValue / this.expenseValue) * 100).toFixed(2)});
-      console.log(this.expenseItems);
+          value: inputValue
+        });
     }
     this.totalValue = this.incomeValue + this.expenseValue;
     this.totalSubj.next(this.totalValue);
@@ -53,11 +53,5 @@ export class OperationService {
           .toFixed(2)
       )
     );
-  }
-
-  hoverIncome() {
-    return this.incomeValue;
-    // calculate the individual percentage here
-    // feed the observable in for calculation
   }
 }
