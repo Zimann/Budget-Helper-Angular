@@ -18,6 +18,7 @@ export class InputSectionComponent implements OnInit, AfterViewInit {
   onKeyPress(ev: KeyboardEvent) {
     if (ev.key === 'Enter') {
       this.pushData();
+      this.inputDescription.nativeElement.focus();
     }
   }
   constructor(private operationService: OperationService) { }
