@@ -12,7 +12,6 @@
 ### Technologies used
 - HTML5 
 - CSS3
-- Grunt 
-- jQuery
-- ES6 JavaScript
+- Angular 
+- Typescript
 - Webpack
