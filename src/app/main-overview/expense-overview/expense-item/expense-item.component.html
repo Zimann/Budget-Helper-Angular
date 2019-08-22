@@ -2,7 +2,12 @@
   <div>{{addedEntry.description}}</div>
   <div>
     <span class="item-value">{{addedEntry.value}}</span>
-    <span class="hovered-percentage">{{(addedEntry.value/(accumulatedExpenseValue$ | async) * 100).toFixed(2)}}%</span>
+    <span class="hovered-percentage">
+      {{
+        ((addedEntry.value/(accumulatedExpenseValue$ | async) < 0 ?
+            (addedEntry.value/(accumulatedExpenseValue$ | async) * -100).toFixed(2) :
+            (addedEntry.value/(accumulatedExpenseValue$ | async) * 100).toFixed(2)))
+      }}%</span>
     <i (click)=removeExpenseItem(i) class="fa fa-times-circle-o circle-orange" aria-hidden="true"></i>
   </div>
 </div>
