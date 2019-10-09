@@ -1,5 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {OperationService} from '../../../operation.service';
+import {Component, Input} from '@angular/core';
+import {OperationService} from '../../../services/operation.service';
 import {InputItemModel} from '../../../models/input-item.model';
 
 @Component({
@@ -9,7 +9,7 @@ import {InputItemModel} from '../../../models/input-item.model';
 })
 export class ExpenseItemComponent {
 
-  accumulatedExpenseValue$ = this.operationService.expenseValue$;
+  accumulatedExpenseValue$ = this.operationService.expenseSubj;
   @Input() expenseValues: InputItemModel;
 
   constructor(private operationService: OperationService) { }

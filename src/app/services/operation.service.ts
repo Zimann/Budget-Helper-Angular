@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, of} from 'rxjs';
-import {InputItemModel} from './models/input-item.model';
+import {InputItemModel} from '../models/input-item.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,11 +18,6 @@ export class OperationService {
   public incomeItems$ = of(this.incomeItems).subscribe(val => this.incomeEntries = val);
   public expenseEntries: InputItemModel[];
   public incomeEntries: InputItemModel[];
-  // expose observables from the above BehaviorSubjects
-  public incomeValue$ = this.incomeSubj.asObservable();
-  public expenseValue$ = this.expenseSubj.asObservable();
-  public totalValue$ = this.totalSubj.asObservable();
-  public totalPercentageValue$ = this.totalPercentageSubj.asObservable();
   public totalValue = 0;
   public incomeValue = 0;
   public expenseValue = 0;
@@ -41,7 +36,8 @@ export class OperationService {
         {
           description: inputText,
           value: inputValue
-        });
+        }
+      );
     }
     this.totalValue = this.incomeValue + this.expenseValue;
     this.totalSubj.next(this.totalValue);

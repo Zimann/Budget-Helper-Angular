@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {OperationService} from '../operation.service';
+import {OperationService} from '../services/operation.service';
 
 @Component({
   selector: 'app-info-header',
@@ -8,10 +8,10 @@ import {OperationService} from '../operation.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class InfoHeaderComponent implements OnInit {
-  public income$ = this.operationService.incomeValue$;
-  public expense$ = this.operationService.expenseValue$;
-  public total$ = this.operationService.totalValue$;
-  public totalPercentage$ = this.operationService.totalPercentageValue$;
+  public income$ = this.operationService.incomeSubj;
+  public expense$ = this.operationService.expenseSubj;
+  public total$ = this.operationService.totalSubj;
+  public totalPercentage$ = this.operationService.totalPercentageSubj;
   currentMonth: string;
   monthArray = [
     'January',

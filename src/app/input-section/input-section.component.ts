@@ -1,6 +1,6 @@
-import {AfterViewInit, ChangeDetectorRef, Component, HostListener, OnInit} from '@angular/core';
+import {AfterViewInit, Component, HostListener, OnInit} from '@angular/core';
 import {ViewChild, ElementRef} from '@angular/core';
-import {OperationService} from '../operation.service';
+import {OperationService} from '../services/operation.service';
 
 @Component({
   selector: 'app-input-section',

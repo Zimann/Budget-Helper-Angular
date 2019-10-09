@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {OperationService} from '../../../operation.service';
+import {OperationService} from '../../../services/operation.service';
 import {InputItemModel} from '../../../models/input-item.model';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-income-item',
@@ -9,8 +10,8 @@ import {InputItemModel} from '../../../models/input-item.model';
 })
 export class IncomeItemComponent {
 
-  accumulatedIncomeValue$ = this.operationService.incomeValue$;
-  @Input() incomeValues: InputItemModel;
+  accumulatedIncomeValue$: Observable<number> = this.operationService.incomeSubj;
+  @Input() incomeValues: InputItemModel[];
   constructor(private operationService: OperationService) { }
 
   removeIncomeItem(index) {
@@ -19,7 +20,7 @@ export class IncomeItemComponent {
     this.operationService.totalValue -= Number(this.operationService.incomeEntries[index].value);
     this.operationService.incomeValue -= Number(this.operationService.incomeEntries[index].value);
 
-    // emit updated values for the observables
+    // emit updated values for the BehaviorSubjects
     this.operationService.totalSubj.next(this.operationService.totalValue);
     this.operationService.incomeSubj.next(this.operationService.incomeValue);
 
@@ -27,7 +28,6 @@ export class IncomeItemComponent {
     this.operationService.incomeEntries.splice(index, 1);
 
     // update the general percentage
-    // if (this.operationService.totalValue > 0) {
     this.operationService.totalPercentageSubj.next(
         Number(
           ((this.operationService.expenseValue / this.operationService.incomeValue) * 100)
